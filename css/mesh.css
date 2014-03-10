@@ -1,0 +1,667 @@
+/*
+ * Licensed under MIT (https://github.com/SpencerCooley/meshgs.git)
+ *  __  __   _____   ____  _   _       ____   ____ 
+ * |' \/ '| | ___"|/ __"| |'| |'|     /"___| / __"|  
+ * | |\/| | |  _|  \___ \ | |_| |    | |  _  \___ \  
+ * | |  | | | |___  ___) ||  _  |    | |_| |  ___) |  
+ * |_|  |_| |_____||____/ |_| |_| (_) \____| |____/ 
+ *  -- Mesh Grid System v0.00.01 beta (http://mesh.gs)--
+ *      Copyright 2014 Cooley & Blake, LLC.
+ */
+
+
+ /* This tells page to = 100% height and width of device                          */
+ /*  By doing this it removes the scroll bar from side of screen.                 */
+ /*  The advantage of this is that you can have elements scroll on mobile devices.*/
+html,body
+{
+  max-height: 100%;
+  max-width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+} /*margin and padding to prevent scroll bars on side of device */
+
+/* The container sets the height and width of the stage you can we recommend you use "row-12 col-12" for other items that need 100% fill*/
+/* CAUTION: If container is scrollable, it will prevent divs from scrolling on mobile devices.*/ 
+.container{
+	width: 100%;
+	height: 100%;
+}
+
+.scroll-x{
+  overflow-x:scroll;
+}
+.scroll-y{
+  overflow-y:scroll;
+}
+
+/* Basic Rows */
+.row-1, .row-2, .row-3, .row-4, .row-5, .row-6, .row-7, .row-8, 
+.row-9, .row-10, .row-11, .row-12,.row-1-mt, .row-2-mt, .row-3-mt,
+ .row-4-mt, .row-5-mt, .row-6-mt, .row-7-mt, .row-8-mt, .row-9-mt, 
+ .row-10-mt, .row-11-mt, .row-12-mt, .row-1-mb, .row-2-mb, .row-3-mb, 
+ .row-4-mb, .row-5-mb, .row-6-mb, .row-7-mb, .row-8-mb, .row-9-mb, 
+ .row-10-mb, .row-11-mb, .row-12-mb,.row-1-m, .row-2-m, .row-3-m, 
+ .row-4-m, .row-5-m, .row-6-m, .row-7-m, .row-8-m, .row-9-m, .row-10-m,
+  .row-11-m, .row-12-m {
+  float:left;
+  display: inline; /*added because we experienced some issues with positioning */
+  position: relative;
+  overflow: auto;
+}
+
+/* Defines size of rows this is for a fluid layout*/
+.row-12 {
+  height: 100%;
+}
+.row-11 {
+  height: 91.666666666666666%;
+}
+.row-10 {
+  height: 83.333333333333334%;
+}
+.row-9 {
+  height: 75%;
+}
+.row-8 {
+  height: 66.666666666666666%;
+}
+.row-7 {
+  height: 58.3333333333333336%;
+}
+.row-6 {
+  height: 50%;
+}
+.row-5 {
+  height: 41.666666666666667%;
+}
+.row-4 {
+  height: 33.333333333333333%;
+}
+.row-3 {
+  height: 25%;
+}
+.row-2 {
+  height: 16.6666666666666664%;
+}
+.row-1 {
+  height: 8.3333333333333332%;
+}
+
+/*Jump: Moves up from bottom by row size*/
+/*Feature uses "bottom" instead of margin bottom because margin is based off width */
+.row-jump-12 {
+  bottom: 100%;
+}
+.row-jump-11 {
+  bottom: 91.666666666666666%;
+}
+.row-jump-10 {
+  bottom: 83.333333333333334%;
+}
+.row-jump-9 {
+  bottom: 75%;
+}
+.row-jump-8 {
+  bottom: 66.666666666666666%;
+}
+.row-jump-7 {
+  bottom: 58.3333333333333336%;
+}
+.row-jump-6 {
+  bottom: 50%;
+}
+.row-jump-5 {
+  bottom: 41.666666666666667%;
+}
+.row-jump-4 {
+  bottom: 33.333333333333333%;
+}
+.row-jump-3 {
+  bottom: 25%;
+}
+.row-jump-2 {
+  bottom: 16.6666666666666664%;
+}
+.row-jump-1 {
+  bottom: 8.3333333333333332%;
+}
+.row-jump-0 {
+  bottom: 0;
+}
+
+/*Drop:; moves down from top based on row-size*/
+/*Feature uses "top" instead of margin-top because all (margin) is based off width and using margin caused instability */
+.row-drop-12 {
+  top: 100%;
+}
+.row-drop-11 {
+  top: 91.666666666666666%;
+}
+.row-drop-10 {
+  top: 83.333333333333334%;
+}
+.row-drop-9 {
+  top: 75%;
+}
+.row-drop-8 {
+  top: 66.666666666666666%;
+}
+.row-drop-7 {
+  top: 58.3333333333333336%;
+}
+.row-drop-6 {
+  top: 50%;
+}
+.row-drop-5 {
+  top: 41.666666666666667%;
+}
+.row-drop-4 {
+  top: 33.333333333333333%;
+}
+.row-drop-3 {
+  top: 25%;
+}
+.row-drop-2 {
+  top: 16.6666666666666664%;
+}
+.row-drop-1 {
+  top: 8.3333333333333332%;
+}
+.row-drop-0 {
+  top: 0;
+}
+
+
+/*(Margin Top)*/
+/*Feature uses "top" instead of margin top because margin is based off width */
+.row-12-mt {
+  height: 99%;
+  top: 1%;
+}
+.row-11-mt {
+  height: 90.666666666666666%;
+  top:1%;
+}
+.row-10-mt {
+  height: 82.333333333333334%;
+  top:1%;
+}
+.row-9-mt {
+  height: 74%;
+  top:1%;
+}
+.row-8-mt {
+  height: 65.666666666666666%;
+  top:1%;
+}
+.row-7-mt {
+  height: 57.3333333333333336%;
+  top:1%;
+}
+.row-6-mt {
+  height: 49%;
+  top:1%;
+}
+.row-5-mt {
+  height: 40.666666666666667%;
+  top:1%;
+}
+.row-4-mt{
+  height: 32.333333333333333%;
+  top:1%;
+}
+.row-3-mt {
+  height: 24%;
+  top:1%;
+}
+.row-2-mt {
+  height: 15.6666666666666664%;
+  top:1%;
+}
+.row-1-mt {
+  height: 8.3333333333333332%;
+  top:1%;
+}
+/*Margin Bottom*/
+.row-12-mb {
+  height: 99%;
+  bottom:1%;
+}
+.row-11-mb {
+  height: 90.666666666666666%;
+  bottom:1%;
+}
+.row-10-mb {
+  height: 82.333333333333334%;
+  bottom:1%;
+}
+.row-9-mb {
+  height: 74%;
+  bottom:1%;
+}
+.row-8-mb {
+  height: 65.666666666666666%;
+  bottom:1%;
+}
+.row-7-mb {
+  height: 57.3333333333333336%;
+  bottom:1%;
+}
+.row-6-mb {
+  height: 49%;
+  bottom:1%;
+}
+.row-5-mb {
+  height: 40.666666666666667%;
+  bottom:1%;
+}
+.row-4-mb{
+  height: 32.333333333333333%;
+  bottom:1%;
+}
+.row-3-mb {
+  height: 24%;
+  bottom:1%;
+}
+.row-2-mb {
+  height: 15.6666666666666664%;
+  bottom:1%;
+}
+.row-1-mb {
+  height: 7.3333333333333332%;
+  bottom:1%;
+}
+/*Margin*/
+.row-12-m {
+  height: 98%;
+  top:1%;
+  bottom:1%;
+}
+.row-11-m {
+  height: 89.666666666666666%;
+  top:1%;
+  bottom:1%;
+}
+.row-10-m {
+  height: 81.333333333333334%;
+  top:1%;
+  bottom:1%;
+}
+.row-9-m {
+  height: 73%;
+  top:1%;
+  bottom:1%;
+}
+.row-8-m {
+  height: 64.666666666666666%;
+  top:1%;
+  bottom:1%;
+}
+.row-7-m {
+  height: 56.3333333333333336%;
+  top:1%;
+  bottom:1%;
+}
+.row-6-m {
+  height: 48%;
+  top:1%;
+  bottom:1%;
+}
+.row-5-m {
+  height: 39.666666666666667%;
+  top:1%;
+  bottom:1%;
+}
+.row-4-m{
+  height: 31.333333333333333%;
+  top:1%;
+  bottom:1%;
+}
+.row-3-m {
+  height: 23%;
+  top:1%;
+  bottom:1%;
+}
+.row-2-m {
+  height: 14.6666666666666664%;
+  top:1%;
+  bottom:1%;
+}
+.row-1-m {
+  height: 6.3333333333333332%;
+  top:1%;
+  bottom:1%;
+}
+
+/* Columns */
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, 
+.col-9, .col-10, .col-11, .col-12,.col-1-mr, .col-2-mr, .col-3-mr,
+ .col-4-mr, .col-5-mr, .col-6-mr, .col-7-mr, .col-8-mr, .col-9-mr, 
+ .col-10-mr, .col-11-mr, .col-12-mr, .col-1-ml, .col-2-ml, .col-3-ml, 
+ .col-4-ml, .col-5-ml, .col-6-ml, .col-7-ml, .col-8-ml, .col-9-ml, 
+ .col-10-ml, .col-11-ml, .col-12-ml,.col-1-m, .col-2-m, .col-3-m, 
+ .col-4-m, .col-5-m, .col-6-m, .col-7-m, .col-8-m, .col-9-m, .col-10-m,
+  .col-11-m, .col-12-m  {
+  float:left;
+  display: inline;
+  position: relative;
+  overflow: auto;
+}
+
+/*Defines column size*/
+.col-12 {
+  width: 100%;
+}
+.col-11 {
+  width: 91.66666666666666%;
+}
+.col-10 {
+  width: 83.33333333333334%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-8 {
+  width: 66.66666666666666%;
+}
+.col-7 {
+  width: 58.333333333333336%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-5 {
+  width: 41.66666666666667%;
+}
+.col-4 {
+  width: 33.33333333333333%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-2 {
+  width: 16.666666666666664%;
+}
+.col-1 {
+  width: 8.333333333333332%;
+}
+/* Pulls collom from right side to left by value */
+.col-pull-12 {
+  right: 100%;
+}
+.col-pull-11 {
+  right: 91.66666666666666%;
+}
+.col-pull-10 {
+  right: 83.33333333333334%;
+}
+.col-pull-9 {
+  right: 75%;
+}
+.col-pull-8 {
+  right: 66.66666666666666%;
+}
+.col-pull-7 {
+  right: 58.333333333333336%;
+}
+.col-pull-6 {
+  right: 50%;
+}
+.col-pull-5 {
+  right: 41.66666666666667%;
+}
+.col-pull-4 {
+  right: 33.33333333333333%;
+}
+.col-pull-3 {
+  right: 25%;
+}
+.col-pull-2 {
+  right: 16.666666666666664%;
+}
+.col-pull-1 {
+  right: 8.333333333333332%;
+}
+.col-pull-0 {
+  right: 0;
+}
+.col-push-12 {
+  left: 100%;
+}
+.col-push-11 {
+  left: 91.66666666666666%;
+}
+.col-push-10 {
+  left: 83.33333333333334%;
+}
+.col-push-9 {
+  left: 75%;
+}
+.col-push-8 {
+  left: 66.66666666666666%;
+}
+.col-push-7 {
+  left: 58.333333333333336%;
+}
+.col-push-6 {
+  left: 50%;
+}
+.col-push-5 {
+  left: 41.66666666666667%;
+}
+.col-push-4 {
+  left: 33.33333333333333%;
+}
+.col-push-3 {
+  left: 25%;
+}
+.col-push-2 {
+  left: 16.666666666666664%;
+}
+.col-push-1 {
+  left: 8.333333333333332%;
+}
+.col-push-0 {
+  left: 0;
+}
+.col-offset-12 {
+  margin-left: 100%;
+}
+.col-offset-11 {
+  margin-left: 91.66666666666666%;
+}
+.col-offset-10 {
+  margin-left: 83.33333333333334%;
+}
+.col-offset-9 {
+  margin-left: 75%;
+}
+.col-offset-8 {
+  margin-left: 66.66666666666666%;
+}
+.col-offset-7 {
+  margin-left: 58.333333333333336%;
+}
+.col-offset-6 {
+  margin-left: 50%;
+}
+.col-offset-5 {
+  margin-left: 41.66666666666667%;
+}
+.col-offset-4 {
+  margin-left: 33.33333333333333%;
+}
+.col-offset-3 {
+  margin-left: 25%;
+}
+.col-offset-2 {
+  margin-left: 16.666666666666664%;
+}
+.col-offset-1 {
+  margin-left: 8.333333333333332%;
+}
+.col-offset-0 {
+  margin-left: 0;
+}
+
+/*(Margin right)*/
+.col-12-mr {
+  width: 99%;
+  margin-right:1%;
+}
+.col-11-mr {
+  width: 90.666666666666666%;
+  margin-right:1%;
+}
+.col-10-mr {
+  width: 82.333333333333334%;
+  margin-right:1%;
+}
+.col-9-mr {
+  width: 74%;
+  margin-right:1%;
+}
+.col-8-mr {
+  width: 65.666666666666666%;
+  margin-right:1%;
+}
+.col-7-mr {
+  width: 57.3333333333333336%;
+  margin-right:1%;
+}
+.col-6-mr {
+  width: 49%;
+  margin-right:1%;
+}
+.col-5-mr {
+  width: 40.666666666666667%;
+  margin-right:1%;
+}
+.col-4-mr {
+  width: 32.333333333333333%;
+  margin-right:1%;
+}
+.col-3-mr {
+  width: 24%;
+  margin-right:1%;
+}
+.col-2-mr {
+  width: 15.6666666666666664%;
+  margin-right:1%;
+}
+.col-1-mr {
+  width: 8.3333333333333332%;
+  margin-right:1%;
+}
+/*(Margin left)*/
+.col-12-ml {
+  width: 99%;
+  margin-left:1%;
+}
+.col-11-ml {
+  width: 90.666666666666666%;
+  margin-left:1%;
+}
+.col-10-ml {
+  width: 82.333333333333334%;
+  margin-left:1%;
+}
+.col-9-ml {
+  width: 74%;
+  margin-left:1%;
+}
+.col-8-ml {
+  width: 65.666666666666666%;
+  margin-left:1%;
+}
+.col-7-ml {
+  width: 57.3333333333333336%;
+  margin-left:1%;
+}
+.col-6-ml {
+  width: 49%;
+  margin-left:1%;
+}
+.col-5-ml {
+  width: 40.666666666666667%;
+  margin-left:1%;
+}
+.col-4-ml{
+  width: 32.333333333333333%;
+  margin-left:1%;
+}
+.col-3-ml {
+  width: 24%;
+  margin-left:1%;
+}
+.col-2-ml {
+  width: 15.6666666666666664%;
+  margin-left:1%;
+}
+.col-1-ml {
+  width: 7.3333333333333332%;
+  margin-left:1%;
+}
+/*(Margin)*/
+.col-12-m {
+  width: 98%;
+  margin-right:1%;
+  margin-left:1%;
+}
+.col-11-m {
+  width: 89.666666666666666%;
+  margin-right:1%;
+  margin-left:1%;
+}
+.col-10-m {
+  width: 81.333333333333334%;
+  margin-right:1%;
+  margin-left:1%;
+}
+.col-9-m {
+  width: 73%;
+  margin-right:1%;
+  margin-left:1%;
+}
+.col-8-m {
+  width: 64.666666666666666%;
+  margin-right:1%;
+  margin-left:1%;
+}
+.col-7-m {
+  width: 56.3333333333333336%;
+  margin-right:1%;
+  margin-left:1%;
+}
+.col-6-m {
+  width: 48%;
+  margin-right:1%;
+  margin-left:1%;
+}
+.col-5-m {
+  width: 39.666666666666667%;
+  margin-right:1%;
+  margin-left:1%;
+}
+.col-4-m{
+  width: 31.333333333333333%;
+  margin-right:1%;
+  margin-left:1%;
+}
+.col-3-m {
+  width: 23%;
+  margin-right:1%;
+  margin-left:1%;
+}
+.col-2-m {
+  width: 14.6666666666666664%;
+  margin-right:1%;
+  margin-left:1%;
+}
+.col-1-m {
+  width: 6.3333333333333332%;
+  margin-right:1%;
+  margin-left:1%;
+}
